@@ -20,9 +20,8 @@ Network Connectivity Directed Graph:
       + Create a `user_input()` thread --> (while true)
    2. `receive_handler()` while true `recv()`,  if message exist ------> create new `receive_process()` thread and with lock to handle the token
    3. User interface:
-
       + Initial a token
-   + Start a snapshot
+      + Start a snapshot
       + start message passing perturbation: `perturb_tag`
    4. Local state:  local token states
    5. Channel States:  (A, B) tuple
