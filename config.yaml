@@ -1,0 +1,69 @@
+A:
+  IP: "localhost"
+  Port: 10001
+  Edges:
+    Connected_edge:
+      - B
+      - D
+    Incoming_channel:
+      - B
+      - D
+    Outcoming_channel:
+      - B
+B:
+  IP: "localhost"
+  Port: 10002
+  Edges:
+    Connected_edge:
+      - A
+      - C
+      - D
+      - E
+    Incoming_channel:
+      - A
+      - C
+      - D
+      - E
+    Outcoming_channel:
+      - A
+      - D
+C:
+  IP: "localhost"
+  Port: 10003
+  Edges:
+    Connected_edge:
+      - B
+      - D
+    Incoming_channel:
+      - D
+    Outcoming_channel:
+      - B
+D:
+  IP: "localhost"
+  Port: 10004
+  Edges:
+    Connected_edge:
+      - A
+      - B
+      - C
+      - E
+    Incoming_channel:
+      - B
+      - E
+    Outcoming_channel:
+      - A
+      - B
+      - C
+      - E
+E:
+  IP: "localhost"
+  Port: 10005
+  Edges:
+    Connected_edge:
+      - B
+      - D
+    Incoming_channel:
+      - D
+    Outcoming_channel:
+      - B
+      - D
