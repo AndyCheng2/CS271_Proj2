@@ -13,7 +13,7 @@ Network Connectivity Directed Graph:
 2. Main process: 
 
    1. Initial the Socket connections:
-      + `A: 10001, B: 10002, C:10003, D:10004, E:10005` (Port number)
+      + `A: 10011, B: 10012, C:10013, D:10014, E:10015` (Port number)
       + Input a agrv detect the user ---Auto Script
       + Depend the Graph to connect with Sockets
       + Bind Socket success, put in `receive_List[]` & `send_List[]`  -------> create `receive_handler()` Thread for each socket in `receiver_list[]`
