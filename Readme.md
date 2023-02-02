@@ -4,7 +4,9 @@ Network Connectivity Directed Graph:
 
 ![graph](./photo/graph.png)
 
-
+### How to run the project
+1. Run auto.py
+2. In user-interface input what you want
 
 ### Project structure
 
