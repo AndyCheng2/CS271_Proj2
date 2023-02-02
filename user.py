@@ -6,13 +6,19 @@ import yaml
 from process_enum import Process_port
 from connect_port_enum import Connect_port
 
-
+# both of them are socket list
 receive_List = []
 send_List = []
+
+# translate the string name to socket object
 socket_dict = {}
+
+# string list
 outgoing_channels = []
 incoming_channels = []
-# socket_List = []
+
+
+
 
 # Load the YAML file
 with open('config.yaml', 'r') as file:
