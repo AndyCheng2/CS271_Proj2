@@ -1,69 +1,69 @@
 A:
   IP: "localhost"
-  Port: 10001
+  Port: 10011
   Edges:
     Connected_edge:
-      - B
-      - D
+      - B, 20011
+      - D, 21001
     Incoming_channel:
       - B
       - D
-    Outcoming_channel:
+    Outgoing_channel:
       - B
 B:
   IP: "localhost"
-  Port: 10002
+  Port: 10012
   Edges:
     Connected_edge:
-      - A
-      - C
-      - D
-      - E
+      - A, 20011
+      - C, 20110
+      - D, 21010
+      - E, 30010
     Incoming_channel:
       - A
       - C
       - D
       - E
-    Outcoming_channel:
+    Outgoing_channel:
       - A
       - D
 C:
   IP: "localhost"
-  Port: 10003
+  Port: 10013
   Edges:
     Connected_edge:
-      - B
-      - D
+      - B, 20110
+      - D, 21100
     Incoming_channel:
       - D
-    Outcoming_channel:
+    Outgoing_channel:
       - B
 D:
   IP: "localhost"
-  Port: 10004
+  Port: 10014
   Edges:
     Connected_edge:
-      - A
-      - B
-      - C
-      - E
+      - A, 21001
+      - B, 21010
+      - C, 21100
+      - E, 31000
     Incoming_channel:
       - B
       - E
-    Outcoming_channel:
+    Outgoing_channel:
       - A
       - B
       - C
       - E
 E:
   IP: "localhost"
-  Port: 10005
+  Port: 10015
   Edges:
     Connected_edge:
-      - B
-      - D
+      - B, 30010
+      - D, 31000
     Incoming_channel:
       - D
-    Outcoming_channel:
+    Outgoing_channel:
       - B
       - D
