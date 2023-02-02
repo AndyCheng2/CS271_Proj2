@@ -27,6 +27,7 @@ Network Connectivity Directed Graph:
       + Initial a token
       + Start a snapshot
       + start message passing perturbation: `perturb_tag`
+      + Send a message to someone (used for test and debug)
    4. Local state:  local token states
    5. Channel States:  (A, B) tuple
    
