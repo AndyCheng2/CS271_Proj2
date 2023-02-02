@@ -10,6 +10,8 @@ from connect_port_enum import Connect_port
 receive_List = []
 send_List = []
 socket_dict = {}
+outgoing_channels = []
+incoming_channels = []
 # socket_List = []
 
 # Load the YAML file
@@ -17,17 +19,58 @@ with open('config.yaml', 'r') as file:
     data = yaml.safe_load(file)
 
 
-def receive_handle(receive_socket):
-    while True:
-        time.sleep(10)
-        print("receive_handle")
+def receive_handler(receive_socket, data):
+    print("\nReceive the message: " + data)
     return
 
-def user_input():
+
+def receive_message(receive_socket):
     while True:
-        time.sleep(10)
-        print("user_input")
-    return
+        data = receive_socket.recv(1024).decode()
+        # print("new thread created, message is: " + data)
+        receive_msg_thread = threading.Thread(target=receive_handler, args=(receive_socket, data))
+        receive_msg_thread.start()
+        # receive_thread.join()
+        # print("one thread close")
+
+
+def user_input():
+    print("user get into user_input thread")
+    while True:
+        print("Hi, " + name + ", please input what do you want to do")
+        print(f"1:Init a token from here-{name}")
+        print("2:Start a snapshot")
+        print("3.Start message passing perturbation")
+        print("4.Send a message to someone")
+        print("0.Exit")
+        op = input("Input a number here:")
+        while not op.isdigit():
+            op = input("Input here:")
+        op = int(op)
+        if op == 1:
+            print("Init a token from here")
+            print("waiting for future development\n")
+        elif op == 2:
+            print("Start a snapshot")
+            print("waiting for future development\n")
+        elif op == 3:
+            print("Start message passing perturbation")
+            print("waiting for future development\n")
+        elif op == 4:
+            print("Here is your outcoing channels:")
+            print(outgoing_channels)
+            receiver = str(input("Please input the username that you want to send: "))
+            while receiver not in outgoing_channels:
+                receiver = input("Please input the correct name:  ")
+            message = input("Please input the message that you want to send: ")
+            receiver_socket_name = "socket_" + receiver
+            socket_dict[receiver_socket_name].send(message.encode())
+        elif op == 0:
+            sys.exit()
+        else:
+            print("Bad request, re-input again!")
+            input("Press enter to continue")
+            continue
 
 
 def connect_trans(client_port, my_name):
@@ -37,6 +80,7 @@ def connect_trans(client_port, my_name):
     for name_id, port_number in Connect_port.__members__.items():
         if port_number == other_number:
             return name_id
+
 
 def connect_edge(connected_edges):
     for c_tuple in connected_edges:
@@ -68,7 +112,6 @@ def listen_add_socket(client_socket, client_address, my_name):
     if name in outgoing_channels:
         send_List.append(client_socket)
     print(f"Connect user {name} success at {client_port}")
-
 
 
 if __name__ == "__main__":
@@ -132,14 +175,14 @@ if __name__ == "__main__":
 
     # start receive thread
     for r_socket in receive_List:
-        receive_thread = threading.Thread(target=receive_handle, args=(r_socket,))
+        receive_thread = threading.Thread(target=receive_message, args=(r_socket,))
         receive_thread.start()
     # start user input thread
     input_thread = threading.Thread(target=user_input, args=())
     input_thread.start()
-
-    print("recive_List:")
-    print(receive_List)
-    print("send_LIst:")
-    print(send_List)
+    # if you want to present the receive_List or send_List
+    # print("recive_List:")
+    # print(receive_List)
+    # print("send_LIst:")
+    # print(send_List)
     print("all connect success, now exit the main process!")
