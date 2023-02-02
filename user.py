@@ -67,7 +67,7 @@ def user_input():
             print("Start message passing perturbation")
             print("waiting for future development\n")
         elif op == 4:
-            print("Here is your outcoing channels:")
+            print("Here is your outgoing channels:")
             print(outgoing_channels)
             receiver = str(input("Please input the username that you want to send: "))
             while receiver not in outgoing_channels:
