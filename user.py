@@ -1,4 +1,3 @@
-import ast
 import socket
 import threading
 import time
@@ -11,7 +10,7 @@ from connect_port_enum import Connect_port
 receive_List = []
 send_List = []
 socket_dict = {}
-socket_List = {}
+# socket_List = []
 
 # Load the YAML file
 with open('config.yaml', 'r') as file:
@@ -143,4 +142,4 @@ if __name__ == "__main__":
     print(receive_List)
     print("send_LIst:")
     print(send_List)
-    print("all connect success, now exit!")
+    print("all connect success, now exit the main process!")
